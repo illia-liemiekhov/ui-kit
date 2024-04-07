@@ -6,19 +6,19 @@
 }
 
 .root {
+  background-color: var(--btn-bg);
+  border-color: var(--btn-bg);
+  border-radius: var(--btn-line-border-radius);
+  border-style: solid;
+  box-shadow: none;
+  color: var(--btn-color);
+  cursor: pointer;
   font-size: var(--btn-font-size);
   font-weight: var(--btn-font-weight);
   line-height: var(--btn-line-height);
-  border-radius: var(--btn-line-border-radius);
-  cursor: pointer;
-  transition-property: background-color, border-color;
-  transition-duration: var(--transition-duration);
-  box-shadow: none;
-  border-style: solid;
-  border-color: var(--btn-bg);
-  background-color: var(--btn-bg);
-  color: var(--btn-color);
   padding: var(--btn-padding);
+  transition-duration: var(--transition-duration);
+  transition-property: background-color, border-color;
 
   &:hover {
     background-color: var(--btn-hover-bg);
