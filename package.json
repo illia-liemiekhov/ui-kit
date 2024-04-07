@@ -1,6 +1,6 @@
 {
   "name": "@illia.liemiekhov/ui-kit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -10,8 +10,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig-build.json && vite build",
-    "lint": "eslint . --ext json,ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "stylelint": "stylelint **/*.scss",
+    "build:pack": "npm run build && npm pack",
+    "lint": "lint:eslint && lint:stylelint",
+    "lint:eslint": "eslint . --ext json,ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:stylelint": "stylelint **/*.scss",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
