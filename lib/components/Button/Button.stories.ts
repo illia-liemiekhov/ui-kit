@@ -28,7 +28,7 @@ export const Primary: Story = {
 
 export const PrimaryLight: Story = {
   args: {
-    color: 'primaryLight',
+    color: 'primary-light',
     children: 'Button',
   },
 };

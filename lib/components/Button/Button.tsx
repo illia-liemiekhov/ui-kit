@@ -4,7 +4,7 @@ interface ButtonProps {
   /**
    * What color should the button be?
    */
-  color?: 'primary' | 'primaryLight' | 'danger';
+  color?: 'primary' | 'primary-light' | 'danger';
   /**
    * What variant should the button be?
    */
