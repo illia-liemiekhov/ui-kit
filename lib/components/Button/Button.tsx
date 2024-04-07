@@ -16,7 +16,7 @@ interface ButtonProps {
   /**
    * Button contents
    */
-  label: string;
+  children: string;
   /**
    * Optional click handler
    */
@@ -27,7 +27,7 @@ export const Button = ({
   color = 'primary',
   variant = 'contained',
   size = 'medium',
-  label,
+  children,
   ...props
 }: ButtonProps) => {
   return (
@@ -40,7 +40,7 @@ export const Button = ({
       ].join(' ')}
       {...props}
     >
-      {label}
+      {children}
     </button>
   );
 };

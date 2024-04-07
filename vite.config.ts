@@ -11,11 +11,14 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'lib/main.ts'),
+      entry: resolve(__dirname, 'lib/index.ts'),
       formats: ['es'],
     },
     rollupOptions: {
       external: ['react', 'react/jsx-runtime'],
+      output: {
+        entryFileNames: `index.js`,
+      },
     },
   },
   css: {

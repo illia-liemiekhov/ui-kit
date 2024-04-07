@@ -5,7 +5,7 @@ import { expect } from '@storybook/test';
 
 describe('Button', () => {
   it('basic', async () => {
-    render(<Button label="Test button" />);
+    render(<Button>Test button</Button>);
 
     expect(screen.getByRole('button'));
     expect(screen.queryByText('Test button')).toBeInTheDocument();
