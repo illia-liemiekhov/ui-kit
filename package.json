@@ -22,7 +22,8 @@
     "*.{ts,tsx}": [
       "eslint --fix --max-warnings=0",
       "prettier --write"
-    ]
+    ],
+    "*.{css,scss}": "stylelint --fix"
   },
   "peerDependencies": {
     "react": "^18.2.0",
