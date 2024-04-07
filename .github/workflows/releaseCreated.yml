@@ -2,6 +2,12 @@ name: Publish Package to npmjs
 on:
   release:
     types: [created]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
@@ -25,18 +31,11 @@ jobs:
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}            
+
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '18.x'
-
-      - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.1
-        with:
-          install_command: npm ci
-          build_command: npm run build-storybook
-          path: storybook-static
-          checkout: false
+    - id: build-publish
+      uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+      with:
+        path: storybook-static
