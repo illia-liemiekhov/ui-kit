@@ -16,7 +16,7 @@ jobs:
       - name: Run linter 
         run: npm run lint
       - name: Run stylint 
-        run: npm run stylint
+        run: npm run stylelint
       - name: Run tests 
         run: npm run test
       - name: Run build
