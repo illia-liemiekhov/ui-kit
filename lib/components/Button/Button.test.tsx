@@ -8,6 +8,6 @@ describe('Button', () => {
     render(<Button>Test button</Button>);
 
     expect(screen.getByRole('button'));
-    expect(screen.queryByText('Test button')).toBeInTheDocument();
+    expect(screen.queryByText('Test butto')).toBeInTheDocument();
   });
 });
