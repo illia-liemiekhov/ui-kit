@@ -11,6 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     name: Create PR from master to develop
     steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: production
+      - name: Reset promotion branch
+        run: |
+          git fetch origin main:main
+          git reset --hard main
       - name: Create Pull Request from master to develop
         uses: peter-evans/create-pull-request@v7
         with:
