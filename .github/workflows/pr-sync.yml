@@ -1,30 +1,20 @@
-name: Create PR from main to develop
-
+name: Create production promotion pull request
 on:
   push:
     branches:
       - main
-
 jobs:
-  create-pr:
+  productionPromotion:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout main branch
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
-          ref: main
-          fetch-depth: 0
-
-      - name: Create sync branch
+          ref: develop
+      - name: Reset promotion branch
         run: |
-          git checkout -b sync-main-to-develop
-          git push origin sync-main-to-develop
-
-      - name: Create Pull Request to develop
+          git fetch origin main:main
+          git reset --hard main
+      - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          branch: sync-main-to-develop
-          base: develop
-          title: 'Sync main into develop'
-          body: 'Automated PR to sync main into develop'
-          draft: false
+          branch: dev
