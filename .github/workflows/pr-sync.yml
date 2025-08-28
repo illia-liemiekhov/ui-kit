@@ -1,0 +1,20 @@
+name: Automated PR to sync master into develop
+run-name: Triggered by ${{ github.actor }}
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  create-pr-to-develop:
+    runs-on: ubuntu-latest
+    name: Create PR from master to develop
+    steps:
+      - name: Create Pull Request from master to develop
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: develop
+          title: 'Sync master into develop'
+          body: 'Automated PR to sync master into develop'
+          draft: true
