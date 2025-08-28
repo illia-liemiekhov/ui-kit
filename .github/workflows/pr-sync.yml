@@ -1,27 +1,21 @@
-name: Automated PR to sync master into develop
-run-name: Triggered by ${{ github.actor }}
-
+name: Create production promotion pull request
 on:
   push:
     branches:
-      - "main"
-
+      - main
 jobs:
-  create-pr-to-develop:
+  productionPromotion:
     runs-on: ubuntu-latest
-    name: Create PR from master to develop
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: dev
+          ref: develop
       - name: Reset promotion branch
         run: |
           git fetch origin main:main
           git reset --hard main
-      - name: Create Pull Request from master to develop
+      - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         with:
-          branch: develop
-          title: 'Sync master into develop'
-          body: 'Automated PR to sync master into develop'
-          draft: true
+          title: Sync main to develop
+          branch: sync-main-to-develop
